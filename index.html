@@ -1,90 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Surplus Tech</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f5f5f5;
-}
+  <meta charset="UTF-8">
+  <title>Surplus Tech</title>
 
-header {
-  background: #1f2937;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
 
-.main-title { font-size: 26px; font-weight: bold; }
-.sub-title { font-size: 14px; opacity: 0.8; }
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-.info-bar {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background: #e5e7eb;
-  font-size: 14px;
-  color: #111827;
-  font-weight: bold;
-}
+    .main-title {
+      font-size: 26px;
+      font-weight: bold;
+    }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
+    .sub-title {
+      font-size: 14px;
+      opacity: 0.8;
+    }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.2s;
-}
+    .info-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: #e5e7eb;
+      font-size: 14px;
+      color: #111827;
+      font-weight: bold;
+    }
 
-.card:hover { transform: scale(1.03); }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
 
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
 
-.card-content { padding: 15px; }
+    .card:hover {
+      transform: scale(1.03);
+    }
 
-.title { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
 
-.specs { font-size: 14px; color: #555; margin-bottom: 10px; line-height: 1.4; }
+    .card-content {
+      padding: 15px;
+    }
 
-.price { font-size: 16px; font-weight: bold; color: #10b981; }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-footer {
-  background: #111827;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 20px;
-}
+    .specs {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
 
-footer a {
-  color: #10b981;
-  text-decoration: none;
-  display: block;
-  margin: 5px 0;
-}
+    .price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #10b981;
+    }
 
-footer a:hover { text-decoration: underline; }
-</style>
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #10b981;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
   <div class="main-title">Surplus Tech</div>
-  <div class="sub-title">by Synch Neighborhood 501(c)</div>
+  <div class="sub-title">by Synch Neighborhood</div>
 </header>
 
 <div class="info-bar">
@@ -101,100 +128,102 @@ footer a:hover { text-decoration: underline; }
 </footer>
 
 <script>
-// ===== CONTACT INFO =====
-const contact = {
-  email: "synch@gmail.com",
-  facebook: "https://facebook.com/yourmarketplacelink"
-};
+  // ===== CONTACT INFO =====
+  const contact = {
+    email: "youremail@example.com",
+    facebook: "https://facebook.com/yourmarketplacelink"
+  };
 
-document.getElementById("emailLink").href = "mailto:" + contact.email;
-document.getElementById("emailLink").textContent = contact.email;
+  document.getElementById("emailLink").href = "mailto:" + contact.email;
+  document.getElementById("emailLink").textContent = contact.email;
 
-document.getElementById("fbLink").href = contact.facebook;
-document.getElementById("fbLink").textContent = "View on Facebook Marketplace";
+  document.getElementById("fbLink").href = contact.facebook;
+  document.getElementById("fbLink").textContent = "View on Facebook Marketplace";
 
-// ===== DEVICES =====
-const devices = [
-  {
-    name: "Apple MacBook Air 7,2 (2015)",
-    cpu: "Intel i5-5350U",
-    memory: "8GB DDR3",
-    storage: "256GB SSD",
-    gpu: "Intel HD 6000",
-    os: "Ubuntu 24.",
-    battery: "63%",
-    screen: "13.3\"",
-    price: "$150",
-    img: "images/testmac.jpg"
-  },
-  {
-    name: "Dell Latitude E5440",
-    cpu: "Intel i7-4600U",
-    memory: "16GB",
-    storage: "512GB SSD",
-    gpu: "Intel Iris",
-    os: "Windows 11",
-    battery: "Excellent",
-    screen: "14\"",
-    price: "$1200",
-    img: "images/dell.jpg"
-  },
-  {
-    name: "HP Spectre x360",
-    cpu: "Intel i5",
-    memory: "8GB",
-    storage: "256GB SSD",
-    gpu: "Intel Iris",
-    os: "Windows 11",
-    battery: "Good",
-    screen: "13.3\"",
-    price: "$950",
-    img: "images/hp.jpg"
+  // ===== DEVICES =====
+  const devices = [
+    {
+      name: "Apple MacBook Air 7,2 (2015)",
+      cpu: "Intel i5-5350U",
+      memory: "8GB DDR3",
+      storage: "256GB SSD",
+      gpu: "Intel HD 6000",
+      os: "Ubuntu 24.",
+      battery: "63%",
+      screen: "13.3\"",
+      price: "$150",
+      img: "images/testmac.jpg"
+    },
+    {
+      name: "Dell Latitude E5440",
+      cpu: "Intel i7-4600U",
+      memory: "16GB",
+      storage: "512GB SSD",
+      gpu: "Intel Iris",
+      os: "Windows 11",
+      battery: "Excellent",
+      screen: "14\"",
+      price: "$1200",
+      img: "images/dell.jpg"
+    },
+    {
+      name: "HP Spectre x360",
+      cpu: "Intel i5",
+      memory: "8GB",
+      storage: "256GB SSD",
+      gpu: "Intel Iris",
+      os: "Windows 11",
+      battery: "Good",
+      screen: "13.3\"",
+      price: "$950",
+      img: "images/hp.jpg"
+    }
+  ];
+
+  // ===== LAST UPDATED =====
+  document.getElementById("lastUpdated").textContent = new Date().toLocaleDateString();
+
+  // ===== SOLD DEVICES =====
+  let soldCount = 0;
+  function updateSoldCount() {
+    const input = prompt("Enter number of sold devices:");
+    if (!isNaN(input) && input >= 0) {
+      soldCount = input;
+      document.getElementById("soldCount").textContent = soldCount;
+    } else {
+      alert("Please enter a valid number.");
+    }
   }
-];
 
-// ===== LAST UPDATED =====
-document.getElementById("lastUpdated").textContent = new Date().toLocaleDateString();
+  // ===== RENDER =====
+  const container = document.getElementById("container");
 
-// ===== SOLD DEVICES =====
-let soldCount = 0;
-function updateSoldCount() {
-  const input = prompt("Enter number of sold devices:");
-  if (!isNaN(input) && input >= 0) {
-    soldCount = input;
-    document.getElementById("soldCount").textContent = soldCount;
-  } else alert("Please enter a valid number.");
-}
-
-// ===== RENDER =====
-const container = document.getElementById("container");
-
-if (devices.length === 0) {
-  container.innerHTML = "<p style='padding:20px;'>No devices available right now.</p>";
-} else {
-  devices.forEach(d => {
-    if (!d.name || d.name === "Empty Slot") return;
-    container.innerHTML += `
-      <div class="card">
-        <img src="${d.img}" alt="${d.name}">
-        <div class="card-content">
-          <div class="title">${d.name}</div>
-          <div class="specs">
-            CPU: ${d.cpu}<br>
-            Memory: ${d.memory}<br>
-            Storage: ${d.storage}<br>
-            GPU: ${d.gpu}<br>
-            OS: ${d.os}<br>
-            Battery: ${d.battery}<br>
-            Screen Size: ${d.screen}<br>
-            Condition: Certified Refurbished
+  if (devices.length === 0) {
+    container.innerHTML = "<p style='padding:20px;'>No devices available right now.</p>";
+  } else {
+    devices.forEach((d) => {
+      if (!d.name || d.name === "Empty Slot") return; // skip empty
+      container.innerHTML += `
+        <div class="card">
+          <img src="${d.img}" alt="${d.name}">
+          <div class="card-content">
+            <div class="title">${d.name}</div>
+            <div class="specs">
+              CPU: ${d.cpu}<br>
+              Memory: ${d.memory}<br>
+              Storage: ${d.storage}<br>
+              GPU: ${d.gpu}<br>
+              OS: ${d.os}<br>
+              Battery: ${d.battery}<br>
+              Screen Size: ${d.screen}<br>
+              Condition: Certified Refurbished
+            </div>
+            <div class="price">${d.price}</div>
           </div>
-          <div class="price">${d.price}</div>
         </div>
-      </div>
-    `;
-  });
-}
+      `;
+    });
+  }
 </script>
 
 </body>
