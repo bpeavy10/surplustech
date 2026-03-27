@@ -28,6 +28,16 @@
       opacity: 0.8;
     }
 
+    .info-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: #e5e7eb;
+      font-size: 14px;
+      color: #111827;
+      font-weight: bold;
+    }
+
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -104,6 +114,12 @@
   <div class="sub-title">by Synch Neighborhood</div>
 </header>
 
+<!-- Info bar: Inventory date + sold count -->
+<div class="info-bar">
+  <div>Last Updated: <span id="lastUpdated"></span></div>
+  <div>Sold Devices: <span id="soldCount">0</span></div>
+</div>
+
 <div class="container" id="container"></div>
 
 <footer>
@@ -113,7 +129,7 @@
 </footer>
 
 <script>
-  // ===== CONTACT INFO (EDIT HERE) =====
+  // ===== CONTACT INFO =====
   const contact = {
     email: "youremail@example.com",
     facebook: "https://facebook.com/yourmarketplacelink"
@@ -130,16 +146,86 @@
     {
       name: "Apple MacBook Air 7,2 (2015)",
       cpu: "Intel i5-5350U",
-      memory: "8GB",
+      memory: "8GB DDR3",
       storage: "256GB SSD",
       gpu: "Intel HD 6000",
-      os: "macOS Monterey",
-      battery: "Good",
-      price: "$400"
+      os: "Ubuntu 24.",
+      battery: "63%",
+      price: "$150"
     },
     {
-      name: "Dell XPS 13",
-      cpu: "Intel i7",
+      name: "Apple MacBook Air 7,2 (2015)",
+      cpu: "Intel i5-5250U",
+      memory: "8GB DDR3",
+      storage: "256GB SSD",
+      gpu: "Intel HD 6000",
+      os: "Ubuntu 24.",
+      battery: "87%",
+      price: "$150"
+    },
+    {
+      name: "Apple MacBook Air 7,2 (2015)",
+      cpu: "Intel i7-5650U",
+      memory: "8GB DDR3",
+      storage: "121GB SSD",
+      gpu: "Intel HD 6000",
+      os: "Ubuntu 24.",
+      battery: "94%",
+      price: "$150"
+    },
+    {
+      name: "Apple MacBook Air 7,2 (2015)",
+      cpu: "Intel i7-5650U",
+      memory: "8GB DDR3",
+      storage: "500GB SSD",
+      gpu: "Intel HD 6000",
+      os: "Ubuntu 24.",
+      battery: "82%",
+      price: "$150"
+    },
+    {
+      name: "Apple MacBook Air 7,2 (2017)",
+      cpu: "Intel i7-5650U",
+      memory: "8GB DDR3",
+      storage: "500GB SSD",
+      gpu: "Intel HD 6000",
+      os: "Ubuntu 24.",
+      battery: "85%",
+      price: "$150"
+    },
+    {
+      name: "Apple MacBook Air 7,2 (2017)",
+      cpu: "Intel i5-5350U",
+      memory: "8GB DDR3",
+      storage: "250GB SSD",
+      gpu: "Intel HD 6000",
+      os: "Ubuntu 24.",
+      battery: "80%",
+      price: "$150"
+    },
+    {
+      name: "Apple MacBook Air 7,2 (2015)",
+      cpu: "Intel i7-5650U",
+      memory: "8GB DDR3",
+      storage: "500GB SSD",
+      gpu: "Intel HD 6000",
+      os: "Ubuntu 24.",
+      battery: "96%",
+      price: "$150"
+    },
+    {
+      name: "Apple MacBook Air 6,2 (2015)",
+      cpu: "Intel i7-4650U",
+      memory: "8GB DDR3",
+      storage: "500GB SSD",
+      gpu: "Intel HD 6000",
+      os: "Ubuntu 24.",
+      battery: "86%",
+      price: "$150"
+    },
+    {
+      name: "Dell Latitude E5440",
+      cpu: "Intel i7-4600U",
       memory: "16GB",
       storage: "512GB SSD",
       gpu: "Intel Iris",
@@ -159,43 +245,53 @@
     }
   ];
 
-  // ===== AUTO-FILL TO 20 =====
-  while (devices.length < 20) {
-    devices.push({
-      name: "Empty Slot",
-      cpu: "—",
-      memory: "—",
-      storage: "—",
-      gpu: "—",
-      os: "—",
-      battery: "—",
-      price: "—"
-    });
+  // ===== LAST UPDATED =====
+  const lastUpdated = new Date().toLocaleDateString();
+  document.getElementById("lastUpdated").textContent = lastUpdated;
+
+  // ===== SOLD DEVICES =====
+  let soldCount = 0; // initial value
+  function updateSoldCount() {
+    const input = prompt("Enter number of sold devices:");
+    if (!isNaN(input) && input >= 0) {
+      soldCount = input;
+      document.getElementById("soldCount").textContent = soldCount;
+    } else {
+      alert("Please enter a valid number.");
+    }
   }
+
+  // Optional: trigger prompt on page load (comment out if undesired)
+  // updateSoldCount();
 
   // ===== RENDER =====
   const container = document.getElementById("container");
 
-  devices.forEach((d) => {
-    container.innerHTML += `
-      <div class="card">
-        <img src="https://via.placeholder.com/300x180" alt="Laptop">
-        <div class="card-content">
-          <div class="title">${d.name}</div>
-          <div class="specs">
-            CPU: ${d.cpu}<br>
-            Memory: ${d.memory}<br>
-            Storage: ${d.storage}<br>
-            GPU: ${d.gpu}<br>
-            OS: ${d.os}<br>
-            Battery: ${d.battery}<br>
-            Condition: Certified Refurbished
+  if (devices.length === 0) {
+    container.innerHTML = "<p style='padding:20px;'>No devices available right now.</p>";
+  } else {
+    devices.forEach((d) => {
+      if (!d.name || d.name === "Empty Slot") return; // skip empty
+      container.innerHTML += `
+        <div class="card">
+          <img src="https://via.placeholder.com/300x180" alt="Laptop">
+          <div class="card-content">
+            <div class="title">${d.name}</div>
+            <div class="specs">
+              CPU: ${d.cpu}<br>
+              Memory: ${d.memory}<br>
+              Storage: ${d.storage}<br>
+              GPU: ${d.gpu}<br>
+              OS: ${d.os}<br>
+              Battery: ${d.battery}<br>
+              Condition: Certified Refurbished
+            </div>
+            <div class="price">${d.price}</div>
           </div>
-          <div class="price">${d.price}</div>
         </div>
-      </div>
-    `;
-  });
+      `;
+    });
+  }
 </script>
 
 </body>
