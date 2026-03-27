@@ -124,17 +124,128 @@ document.getElementById("emailLink").textContent = contact.email;
 document.getElementById("fbLink").href = contact.facebook;
 document.getElementById("fbLink").textContent = "View on Facebook Marketplace";
 
+// ===== DEVICES =====
 const devices = [
-  { name:"MacBook Air 2015", cpu:"i5-5350U", memory:"8GB", storage:"256GB", gpu:"HD6000", os:"Ubuntu", battery:"63%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
-  { name:"MacBook Air 2015", cpu:"i5-5250U", memory:"8GB", storage:"256GB", gpu:"HD6000", os:"Ubuntu", battery:"87%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
-  { name:"MacBook Air 2015", cpu:"i7-5650U", memory:"8GB", storage:"121GB", gpu:"HD6000", os:"Ubuntu", battery:"94%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
-  { name:"MacBook Air 2015", cpu:"i7-5650U", memory:"8GB", storage:"500GB", gpu:"HD6000", os:"Ubuntu", battery:"82%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
-  { name:"MacBook Air 2017", cpu:"i7-5650U", memory:"8GB", storage:"500GB", gpu:"HD6000", os:"Ubuntu", battery:"85%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
-  { name:"MacBook Air 2017", cpu:"i5-5350U", memory:"8GB", storage:"250GB", gpu:"HD6000", os:"Ubuntu", battery:"80%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
-  { name:"MacBook Air 2015", cpu:"i7-5650U", memory:"8GB", storage:"500GB", gpu:"HD6000", os:"Ubuntu", battery:"96%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
-  { name:"MacBook Air 2015 (6,2)", cpu:"i7-4650U", memory:"8GB", storage:"500GB", gpu:"HD6000", os:"Ubuntu", battery:"86%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
-  { name:"Dell Latitude E5440", cpu:"i7-4600U", memory:"16GB", storage:"512GB", gpu:"Intel", os:"Windows 11", battery:"Excellent", screen:"14\"", price:"$1200", img:"dell.jpg"},
-  { name:"HP Spectre x360", cpu:"i5", memory:"8GB", storage:"256GB", gpu:"Intel", os:"Windows 11", battery:"Good", screen:"13.3\"", price:"$950", img:"hp.jpg"}
+  {
+    name: "Apple MacBook Air 7,2 (Early 2015)",
+    cpu: "Intel Core i5-5350U 1.8GHz",
+    memory: "8GB DDR3",
+    storage: "256GB SSD",
+    gpu: "Intel HD Graphics 6000",
+    os: "Ubuntu 24.04 LTS",
+    battery: "63%",
+    screen: "13.3\"",
+    price: "$150",
+    img: "testmac.jpg"
+  },
+  {
+    name: "Apple MacBook Air 7,2 (Early 2015)",
+    cpu: "Intel Core i5-5250U 1.6GHz",
+    memory: "8GB DDR3",
+    storage: "256GB SSD",
+    gpu: "Intel HD Graphics 6000",
+    os: "Ubuntu 24.04 LTS",
+    battery: "87%",
+    screen: "13.3\"",
+    price: "$150",
+    img: "testmac.jpg"
+  },
+  {
+    name: "Apple MacBook Air 7,2 (Early 2015)",
+    cpu: "Intel Core i7-5650U 2.2GHz",
+    memory: "8GB DDR3",
+    storage: "128GB SSD",
+    gpu: "Intel HD Graphics 6000",
+    os: "Ubuntu 24.04 LTS",
+    battery: "94%",
+    screen: "13.3\"",
+    price: "$150",
+    img: "testmac.jpg"
+  },
+  {
+    name: "Apple MacBook Air 7,2 (Early 2015)",
+    cpu: "Intel Core i7-5650U 2.2GHz",
+    memory: "8GB DDR3",
+    storage: "500GB SSD",
+    gpu: "Intel HD Graphics 6000",
+    os: "Ubuntu 24.04 LTS",
+    battery: "82%",
+    screen: "13.3\"",
+    price: "$150",
+    img: "testmac.jpg"
+  },
+  {
+    name: "Apple MacBook Air 7,2 (2017)",
+    cpu: "Intel Core i7-5650U 2.2GHz",
+    memory: "8GB DDR3",
+    storage: "500GB SSD",
+    gpu: "Intel HD Graphics 6000",
+    os: "Ubuntu 24.04 LTS",
+    battery: "85%",
+    screen: "13.3\"",
+    price: "$150",
+    img: "testmac.jpg"
+  },
+  {
+    name: "Apple MacBook Air 7,2 (2017)",
+    cpu: "Intel Core i5-5350U 1.8GHz",
+    memory: "8GB DDR3",
+    storage: "250GB SSD",
+    gpu: "Intel HD Graphics 6000",
+    os: "Ubuntu 24.04 LTS",
+    battery: "80%",
+    screen: "13.3\"",
+    price: "$150",
+    img: "testmac.jpg"
+  },
+  {
+    name: "Apple MacBook Air 7,2 (Early 2015)",
+    cpu: "Intel Core i7-5650U 2.2GHz",
+    memory: "8GB DDR3",
+    storage: "500GB SSD",
+    gpu: "Intel HD Graphics 6000",
+    os: "Ubuntu 24.04 LTS",
+    battery: "96%",
+    screen: "13.3\"",
+    price: "$150",
+    img: "testmac.jpg"
+  },
+  {
+    name: "Apple MacBook Air 6,2 (Mid 2014)",
+    cpu: "Intel Core i7-4650U 1.7GHz",
+    memory: "8GB DDR3",
+    storage: "500GB SSD",
+    gpu: "Intel HD Graphics 5000",
+    os: "Ubuntu 24.04 LTS",
+    battery: "86%",
+    screen: "13.3\"",
+    price: "$150",
+    img: "testmac.jpg"
+  },
+  {
+    name: "Dell Latitude E5440",
+    cpu: "Intel Core i7-4600U 2.1GHz",
+    memory: "16GB DDR3",
+    storage: "512GB SSD",
+    gpu: "Intel HD Graphics 4400",
+    os: "Windows 11 Pro",
+    battery: "Excellent",
+    screen: "14\"",
+    price: "$200",
+    img: "dell.jpg"
+  },
+  {
+    name: "HP Spectre x360",
+    cpu: "Intel Core i5 (8th Gen)",
+    memory: "8GB DDR4",
+    storage: "256GB SSD",
+    gpu: "Intel UHD Graphics 620",
+    os: "Windows 11 Home",
+    battery: "Good",
+    screen: "13.3\" Touch",
+    price: "$300",
+    img: "hp.jpg"
+  }
 ];
 
 document.getElementById("lastUpdated").textContent = new Date().toLocaleDateString();
