@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surplus Tech</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .main-title {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .specs {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #10b981;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #10b981;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="main-title">Surplus Tech</div>
+  <div class="sub-title">by Synch Neighborhood</div>
+</header>
+
+<div class="container" id="container"></div>
+
+<footer>
+  <div>Contact</div>
+  <a id="emailLink"></a>
+  <a id="fbLink" target="_blank"></a>
+</footer>
+
+<script>
+  // ===== CONTACT INFO (EDIT HERE) =====
+  const contact = {
+    email: "youremail@example.com",
+    facebook: "https://facebook.com/yourmarketplacelink"
+  };
+
+  document.getElementById("emailLink").href = "mailto:" + contact.email;
+  document.getElementById("emailLink").textContent = contact.email;
+
+  document.getElementById("fbLink").href = contact.facebook;
+  document.getElementById("fbLink").textContent = "View on Facebook Marketplace";
+
+  // ===== DEVICES =====
+  const devices = [
+    {
+      name: "Apple MacBook Air 7,2 (2015)",
+      cpu: "Intel i5-5350U",
+      memory: "8GB",
+      storage: "256GB SSD",
+      gpu: "Intel HD 6000",
+      os: "macOS Monterey",
+      battery: "Good",
+      price: "$400"
+    },
+    {
+      name: "Dell XPS 13",
+      cpu: "Intel i7",
+      memory: "16GB",
+      storage: "512GB SSD",
+      gpu: "Intel Iris",
+      os: "Windows 11",
+      battery: "Excellent",
+      price: "$1200"
+    },
+    {
+      name: "HP Spectre x360",
+      cpu: "Intel i5",
+      memory: "8GB",
+      storage: "256GB SSD",
+      gpu: "Intel Iris",
+      os: "Windows 11",
+      battery: "Good",
+      price: "$950"
+    }
+  ];
+
+  // ===== AUTO-FILL TO 20 =====
+  while (devices.length < 20) {
+    devices.push({
+      name: "Empty Slot",
+      cpu: "—",
+      memory: "—",
+      storage: "—",
+      gpu: "—",
+      os: "—",
+      battery: "—",
+      price: "—"
+    });
+  }
+
+  // ===== RENDER =====
+  const container = document.getElementById("container");
+
+  devices.forEach((d) => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Laptop">
+        <div class="card-content">
+          <div class="title">${d.name}</div>
+          <div class="specs">
+            CPU: ${d.cpu}<br>
+            Memory: ${d.memory}<br>
+            Storage: ${d.storage}<br>
+            GPU: ${d.gpu}<br>
+            OS: ${d.os}<br>
+            Battery: ${d.battery}<br>
+            Condition: Certified Refurbished
+          </div>
+          <div class="price">${d.price}</div>
+        </div>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>
