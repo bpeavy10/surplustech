@@ -34,7 +34,6 @@
       padding: 15px 20px;
       background: #e5e7eb;
       font-size: 14px;
-      color: #111827;
       font-weight: bold;
     }
 
@@ -50,11 +49,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
     }
 
     .card img {
@@ -77,11 +71,9 @@
       font-size: 14px;
       color: #555;
       margin-bottom: 10px;
-      line-height: 1.4;
     }
 
     .price {
-      font-size: 16px;
       font-weight: bold;
       color: #10b981;
     }
@@ -91,18 +83,11 @@
       color: white;
       text-align: center;
       padding: 20px;
-      margin-top: 20px;
     }
 
     footer a {
       color: #10b981;
-      text-decoration: none;
       display: block;
-      margin: 5px 0;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -111,10 +96,9 @@
 
 <header>
   <div class="main-title">Surplus Tech</div>
-  <div class="sub-title">by Synch Neighborhood</div>
+  <div class="sub-title">by Synch Neighborhood 501(c)</div>
 </header>
 
-<!-- Info bar: Inventory date + sold count -->
 <div class="info-bar">
   <div>Last Updated: <span id="lastUpdated"></span></div>
   <div>Sold Devices: <span id="soldCount">0</span></div>
@@ -129,169 +113,55 @@
 </footer>
 
 <script>
-  // ===== CONTACT INFO =====
-  const contact = {
-    email: "youremail@example.com",
-    facebook: "https://facebook.com/yourmarketplacelink"
-  };
+const contact = {
+  email: "youremail@example.com",
+  facebook: "https://facebook.com/yourmarketplacelink"
+};
 
-  document.getElementById("emailLink").href = "mailto:" + contact.email;
-  document.getElementById("emailLink").textContent = contact.email;
+document.getElementById("emailLink").href = "mailto:" + contact.email;
+document.getElementById("emailLink").textContent = contact.email;
 
-  document.getElementById("fbLink").href = contact.facebook;
-  document.getElementById("fbLink").textContent = "View on Facebook Marketplace";
+document.getElementById("fbLink").href = contact.facebook;
+document.getElementById("fbLink").textContent = "View on Facebook Marketplace";
 
-  // ===== DEVICES =====
-  const devices = [
-    {
-      name: "Apple MacBook Air 7,2 (2015)",
-      cpu: "Intel i5-5350U",
-      memory: "8GB DDR3",
-      storage: "256GB SSD",
-      gpu: "Intel HD 6000",
-      os: "Ubuntu 24.",
-      battery: "63%",
-      price: "$150"
-    },
-    {
-      name: "Apple MacBook Air 7,2 (2015)",
-      cpu: "Intel i5-5250U",
-      memory: "8GB DDR3",
-      storage: "256GB SSD",
-      gpu: "Intel HD 6000",
-      os: "Ubuntu 24.",
-      battery: "87%",
-      price: "$150"
-    },
-    {
-      name: "Apple MacBook Air 7,2 (2015)",
-      cpu: "Intel i7-5650U",
-      memory: "8GB DDR3",
-      storage: "121GB SSD",
-      gpu: "Intel HD 6000",
-      os: "Ubuntu 24.",
-      battery: "94%",
-      price: "$150"
-    },
-    {
-      name: "Apple MacBook Air 7,2 (2015)",
-      cpu: "Intel i7-5650U",
-      memory: "8GB DDR3",
-      storage: "500GB SSD",
-      gpu: "Intel HD 6000",
-      os: "Ubuntu 24.",
-      battery: "82%",
-      price: "$150"
-    },
-    {
-      name: "Apple MacBook Air 7,2 (2017)",
-      cpu: "Intel i7-5650U",
-      memory: "8GB DDR3",
-      storage: "500GB SSD",
-      gpu: "Intel HD 6000",
-      os: "Ubuntu 24.",
-      battery: "85%",
-      price: "$150"
-    },
-    {
-      name: "Apple MacBook Air 7,2 (2017)",
-      cpu: "Intel i5-5350U",
-      memory: "8GB DDR3",
-      storage: "250GB SSD",
-      gpu: "Intel HD 6000",
-      os: "Ubuntu 24.",
-      battery: "80%",
-      price: "$150"
-    },
-    {
-      name: "Apple MacBook Air 7,2 (2015)",
-      cpu: "Intel i7-5650U",
-      memory: "8GB DDR3",
-      storage: "500GB SSD",
-      gpu: "Intel HD 6000",
-      os: "Ubuntu 24.",
-      battery: "96%",
-      price: "$150"
-    },
-    {
-      name: "Apple MacBook Air 6,2 (2015)",
-      cpu: "Intel i7-4650U",
-      memory: "8GB DDR3",
-      storage: "500GB SSD",
-      gpu: "Intel HD 6000",
-      os: "Ubuntu 24.",
-      battery: "86%",
-      price: "$150"
-    },
-    {
-      name: "Dell Latitude E5440",
-      cpu: "Intel i7-4600U",
-      memory: "16GB",
-      storage: "512GB SSD",
-      gpu: "Intel Iris",
-      os: "Windows 11",
-      battery: "Excellent",
-      price: "$1200"
-    },
-    {
-      name: "HP Spectre x360",
-      cpu: "Intel i5",
-      memory: "8GB",
-      storage: "256GB SSD",
-      gpu: "Intel Iris",
-      os: "Windows 11",
-      battery: "Good",
-      price: "$950"
-    }
-  ];
+const devices = [
+  { name:"MacBook Air 2015", cpu:"i5-5350U", memory:"8GB", storage:"256GB", gpu:"HD6000", os:"Ubuntu", battery:"63%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
+  { name:"MacBook Air 2015", cpu:"i5-5250U", memory:"8GB", storage:"256GB", gpu:"HD6000", os:"Ubuntu", battery:"87%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
+  { name:"MacBook Air 2015", cpu:"i7-5650U", memory:"8GB", storage:"121GB", gpu:"HD6000", os:"Ubuntu", battery:"94%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
+  { name:"MacBook Air 2015", cpu:"i7-5650U", memory:"8GB", storage:"500GB", gpu:"HD6000", os:"Ubuntu", battery:"82%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
+  { name:"MacBook Air 2017", cpu:"i7-5650U", memory:"8GB", storage:"500GB", gpu:"HD6000", os:"Ubuntu", battery:"85%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
+  { name:"MacBook Air 2017", cpu:"i5-5350U", memory:"8GB", storage:"250GB", gpu:"HD6000", os:"Ubuntu", battery:"80%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
+  { name:"MacBook Air 2015", cpu:"i7-5650U", memory:"8GB", storage:"500GB", gpu:"HD6000", os:"Ubuntu", battery:"96%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
+  { name:"MacBook Air 2015 (6,2)", cpu:"i7-4650U", memory:"8GB", storage:"500GB", gpu:"HD6000", os:"Ubuntu", battery:"86%", screen:"13.3\"", price:"$150", img:"testmac.jpg"},
+  { name:"Dell Latitude E5440", cpu:"i7-4600U", memory:"16GB", storage:"512GB", gpu:"Intel", os:"Windows 11", battery:"Excellent", screen:"14\"", price:"$1200", img:"dell.jpg"},
+  { name:"HP Spectre x360", cpu:"i5", memory:"8GB", storage:"256GB", gpu:"Intel", os:"Windows 11", battery:"Good", screen:"13.3\"", price:"$950", img:"hp.jpg"}
+];
 
-  // ===== LAST UPDATED =====
-  const lastUpdated = new Date().toLocaleDateString();
-  document.getElementById("lastUpdated").textContent = lastUpdated;
+document.getElementById("lastUpdated").textContent = new Date().toLocaleDateString();
 
-  // ===== SOLD DEVICES =====
-  let soldCount = 0; // initial value
-  function updateSoldCount() {
-    const input = prompt("Enter number of sold devices:");
-    if (!isNaN(input) && input >= 0) {
-      soldCount = input;
-      document.getElementById("soldCount").textContent = soldCount;
-    } else {
-      alert("Please enter a valid number.");
-    }
-  }
+const container = document.getElementById("container");
 
-  // Optional: trigger prompt on page load (comment out if undesired)
-  // updateSoldCount();
-
-  // ===== RENDER =====
-  const container = document.getElementById("container");
-
-  if (devices.length === 0) {
-    container.innerHTML = "<p style='padding:20px;'>No devices available right now.</p>";
-  } else {
-    devices.forEach((d) => {
-      if (!d.name || d.name === "Empty Slot") return; // skip empty
-      container.innerHTML += `
-        <div class="card">
-          <img src="https://via.placeholder.com/300x180" alt="Laptop">
-          <div class="card-content">
-            <div class="title">${d.name}</div>
-            <div class="specs">
-              CPU: ${d.cpu}<br>
-              Memory: ${d.memory}<br>
-              Storage: ${d.storage}<br>
-              GPU: ${d.gpu}<br>
-              OS: ${d.os}<br>
-              Battery: ${d.battery}<br>
-              Condition: Certified Refurbished
-            </div>
-            <div class="price">${d.price}</div>
-          </div>
+devices.forEach(d => {
+  container.innerHTML += `
+    <div class="card">
+      <img src="${d.img || 'testmac.jpg'}" alt="${d.name}">
+      <div class="card-content">
+        <div class="title">${d.name}</div>
+        <div class="specs">
+          CPU: ${d.cpu}<br>
+          Memory: ${d.memory}<br>
+          Storage: ${d.storage}<br>
+          GPU: ${d.gpu}<br>
+          OS: ${d.os}<br>
+          Battery: ${d.battery}<br>
+          Screen: ${d.screen}<br>
+          Condition: Certified Refurbished
         </div>
-      `;
-    });
-  }
+        <div class="price">${d.price}</div>
+      </div>
+    </div>
+  `;
+});
 </script>
 
 </body>
